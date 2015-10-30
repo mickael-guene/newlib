@@ -16,8 +16,8 @@ _kill (int pid, int sig)
       return do_AngelSWI (AngelSWI_Reason_ReportException,
 			  (void *) ADP_Stopped_RunTimeError);
     default:
-      return do_AngelSWI (AngelSWI_Reason_ReportException,
-			  (void *) ADP_Stopped_ApplicationExit);
+      return do_AngelSWI_extended (AngelSWI_Reason_ReportException,
+			  (void *) ADP_Stopped_ApplicationExit, (void *) pid);
     }
 #else
   asm ("swi %a0" :: "i" (SWI_Exit));
