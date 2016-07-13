@@ -499,7 +499,7 @@ change_back:
 #ifdef ARM_RDI_MONITOR
 .LC30:
 	.word	CommandLine
-	.word	255
+	.word	511
 .LC31:
 	.word	__end__
 
@@ -511,7 +511,7 @@ HeapBase:	.word	0
 HeapLimit:	.word	0
 __stack_base__:	.word	0
 StackLimit:	.word	0
-CommandLine:	.space	256,0	/*  Maximum length of 255 chars handled.  */
+CommandLine:	.space	512,0	/*  Maximum length of 255 chars handled.  */
 #endif
 	
 #ifdef __pe__
